@@ -3,10 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-        <a mat-list-item *ngFor="let item of menuItems; index as i"   [href]="item.path">{{item.label}}</a>
-    </mat-nav-list>
+    <app-menu></app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">

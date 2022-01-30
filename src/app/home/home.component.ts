@@ -11,20 +11,6 @@ import { map, shareReplay } from 'rxjs/operators';
 
 export class HomeComponent {
 
-  menuItems: Array<{path: string, label: string}> = [
-    {
-      path: '/',
-      label: 'Home'
-    },
-    {
-      path: '/categories',
-      label: 'Categories'
-    },
-    {
-      path: '/suppliers',
-      label: 'Suppliers'
-    },
-  ]
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
