@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from './MenuItem';
 
 @Component({
   selector: 'app-menu',
@@ -18,7 +19,7 @@ import { Component, OnInit } from '@angular/core';
   styles: [],
 })
 export class MenuComponent implements OnInit {
-  menuItems: Array<{ path: string; label: string }> = [
+  menuItems: Array<MenuItem> = [
     {
       path: '/',
       label: 'Home',
