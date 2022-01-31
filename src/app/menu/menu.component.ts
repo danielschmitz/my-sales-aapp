@@ -10,7 +10,7 @@ import { MenuItem } from './MenuItem';
         <a
           mat-list-item
           *ngFor="let item of menuItems; index as i"
-          [href]="item.path"
+          [routerLink]="item.path"
           >{{ item.label }}</a
         >
       </mat-nav-list>
