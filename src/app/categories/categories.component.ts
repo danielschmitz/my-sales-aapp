@@ -26,6 +26,8 @@ export class CategoriesComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'description'];
 
+  showForm: Boolean = false;
+
   constructor(private categoryService: CategoryService) { }
 
   ngAfterViewInit(): void {
@@ -38,5 +40,9 @@ export class CategoriesComponent implements AfterViewInit {
         this.dataSource.paginator = this.paginator;
       }
     )
+  }
+
+  onNewCategoryClick(){
+    this.showForm = true;
   }
 }
