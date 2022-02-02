@@ -1,5 +1,5 @@
 <mat-card-content>
-  <form [formGroup]="categoryForm" novalidate>
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" novalidate>
 
     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap fxLayoutGap="10">
       <mat-form-field fxFlex="30%">
@@ -19,6 +19,11 @@
         />
       </mat-form-field>
     </div>
+    <button
+      mat-raised-button color="primary"
+      type="submit"
+      [disabled]="!categoryForm.valid">
+      Save</button>
 
   </form>
 </mat-card-content>
