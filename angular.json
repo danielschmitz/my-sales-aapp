@@ -101,6 +101,12 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://danielschmitz.github.io/my-sales-aapp/"
+          }
         }
       }
     }
