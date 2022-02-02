@@ -25,6 +25,7 @@ import { FormComponent } from './categories/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {MatInputModule} from '@angular/material/input';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
