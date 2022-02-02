@@ -21,6 +21,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './categories/form/form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     MenuComponent,
     CategoriesComponent,
-    DashboardComponent  ],
+    DashboardComponent,
+    FormComponent  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -45,7 +50,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
