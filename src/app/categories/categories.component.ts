@@ -60,6 +60,13 @@ export class CategoriesComponent implements AfterViewInit {
 
   onDeleteCategoryClick(category:Category) {
     console.log("delete category", category)
+
+    if (confirm(`Delete "${category.name}" with id ${category.id} ?`)) {
+      this.categoryService.delete(category.id).subscribe(
+        () => this.refreshData()
+      )
+    }
+
   }
 
   onBackForm() {
