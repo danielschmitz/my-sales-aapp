@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from '../category.dto';
 
@@ -9,16 +9,23 @@ import { Category } from '../category.dto';
 })
 export class FormComponent implements OnInit {
 
+
+  @Output() back = new EventEmitter();
+
+  @Output() save = new EventEmitter<Category>();
+
+
   categoryForm = new FormGroup({
     id: new FormControl(''),
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     description: new FormControl('')
   })
 
-  @Output() back = new EventEmitter();
-
-  @Output() save = new EventEmitter<Category>();
-
+  @Input()
+  set category(category: Category) {
+    console.log('setting new category value')
+    this.categoryForm.setValue(category);
+  }
   constructor() { }
 
   ngOnInit(): void {

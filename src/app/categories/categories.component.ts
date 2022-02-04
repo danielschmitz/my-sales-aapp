@@ -24,9 +24,11 @@ export class CategoriesComponent implements AfterViewInit {
   dataSource!: MatTableDataSource<Category>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'description'];
+  displayedColumns = ['id', 'name', 'description','actions'];
 
   showForm: Boolean = false;
+
+  category!: Category;
 
   constructor(private categoryService: CategoryService) {}
 
@@ -44,6 +46,12 @@ export class CategoriesComponent implements AfterViewInit {
   }
 
   onNewCategoryClick() {
+    this.showForm = true;
+  }
+
+  onEditCategoryClick(category:Category) {
+    console.log("edit category", category)
+    this.category = category;
     this.showForm = true;
   }
 

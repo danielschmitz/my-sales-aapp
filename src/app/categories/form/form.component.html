@@ -1,4 +1,7 @@
 <mat-card-content>
+
+  {{category | json}}
+
   <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" novalidate>
     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap fxLayoutGap="10">
       <mat-form-field fxFlex="30%">
