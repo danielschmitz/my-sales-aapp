@@ -3,7 +3,7 @@
   <mat-card-title>Categories</mat-card-title>
   <mat-card-subtitle>Listing all categories</mat-card-subtitle>
 
-  <category-form *ngIf="showForm"></category-form>
+  <category-form *ngIf="showForm" (back)="onBackForm()" (save)="onSave($event)" ></category-form>
 
   <mat-card-content *ngIf="!showForm">
     <table mat-table class="full-width-table" matSort aria-label="Elements">
