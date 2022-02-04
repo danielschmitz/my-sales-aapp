@@ -46,6 +46,9 @@ export class CategoriesComponent implements AfterViewInit {
   }
 
   onNewCategoryClick() {
+    this.category = {
+      id: 0, name: '', description: ''
+    }
     this.showForm = true;
   }
 
@@ -53,6 +56,10 @@ export class CategoriesComponent implements AfterViewInit {
     console.log("edit category", category)
     this.category = category;
     this.showForm = true;
+  }
+
+  onDeleteCategoryClick(category:Category) {
+    console.log("delete category", category)
   }
 
   onBackForm() {

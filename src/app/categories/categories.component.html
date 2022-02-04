@@ -32,7 +32,10 @@
        <!-- Actions Column -->
        <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-        <td mat-cell *matCellDef="let row"><button mat-button (click)="onEditCategoryClick(row)">Edit</button></td>
+        <td mat-cell *matCellDef="let row">
+          <button mat-button (click)="onEditCategoryClick(row)">Edit</button>
+          <button mat-icon-button color="warn" (click)="onDeleteCategoryClick(row)"><mat-icon>delete</mat-icon></button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
