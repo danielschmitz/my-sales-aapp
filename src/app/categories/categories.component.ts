@@ -46,7 +46,7 @@ export class CategoriesComponent implements OnInit {
       this.table.dataSource = this.dataSource;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      
+            
       // just a test to see loading bar
       setTimeout(() => {
         this.showLoading = false;        
