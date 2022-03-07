@@ -9,8 +9,11 @@
   </category-form>
 
   <mat-card-content *ngIf="!showForm&&!showLoading">
-    <table mat-table class="full-width-table" matSort aria-label="Elements"
-      
+    <table mat-table 
+            class="full-width-table" 
+            matSort 
+            aria-label="Elements"
+            [dataSource]="dataSource"
     >
 
         <!-- Id Column -->
@@ -44,7 +47,6 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        <tr mat-row > teste </tr>
 
     </table>
 
