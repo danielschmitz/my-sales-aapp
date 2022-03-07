@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -16,7 +16,7 @@ import { CategoryService } from './category.service';
     `,
   ],
 })
-export class CategoriesComponent implements AfterViewInit {
+export class CategoriesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<Category>;
@@ -28,21 +28,33 @@ export class CategoriesComponent implements AfterViewInit {
 
   showForm: Boolean = false;
 
+  showLoading: Boolean = false;
+
   category!: Category;
 
   constructor(private categoryService: CategoryService) {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.refreshData();
   }
 
   refreshData() {
+    this.showLoading = true;
+
     this.categoryService.getAll().subscribe((categories) => {
       this.dataSource = new MatTableDataSource(categories);
       this.table.dataSource = this.dataSource;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
+      
+      // just a test to see loading bar
+      setTimeout(() => {
+        this.showLoading = false;        
+      }, 2000);
+
+
     });
+    
   }
 
   onNewCategoryClick() {
