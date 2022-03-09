@@ -30,6 +30,8 @@ export class CategoriesComponent implements OnInit {
 
   showLoading: Boolean = false;
 
+  showLoadingForm: Boolean = false;
+
   category!: Category;
 
   constructor(private categoryService: CategoryService) {}
@@ -46,15 +48,15 @@ export class CategoriesComponent implements OnInit {
       // this.table.dataSource = this.dataSource;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-            
+
       // just a test to see loading bar
       setTimeout(() => {
-        this.showLoading = false;        
+        this.showLoading = false;
       }, 2000);
 
 
     });
-    
+
   }
 
   onNewCategoryClick() {
@@ -88,11 +90,17 @@ export class CategoriesComponent implements OnInit {
 
   onSave(category: Category) {
     console.log('save on category.component.ts', category);
+    this.showLoadingForm = true;
 
     this.categoryService.save(category).subscribe((categorySaved) => {
       console.log('category saved:', categorySaved);
-      this.showForm = false;
-      this.refreshData();
+
+      setTimeout(() => {
+        this.showForm = false;
+        this.refreshData();
+        this.showLoadingForm = false;
+      }, 2000);
+
     });
   }
 }

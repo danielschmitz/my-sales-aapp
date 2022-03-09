@@ -15,6 +15,8 @@ export class FormComponent implements OnInit {
 
   @Output() save = new EventEmitter<Category>();
 
+  @Input() loading: Boolean = false;
+
 
   // categoryForm = new FormGroup({
   //   id: new FormControl(''),
@@ -34,7 +36,7 @@ export class FormComponent implements OnInit {
     console.log('setting new category value')
     this.categoryForm.setValue(category);
   }
-  
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {

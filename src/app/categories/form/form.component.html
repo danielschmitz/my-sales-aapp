@@ -25,7 +25,8 @@
       mat-raised-button
       color="primary"
       type="submit"
-      [disabled]="!categoryForm.valid"
+      [disabled]="!categoryForm.valid||loading"
+      [class.spinner]="loading"
     >
       Save
     </button>
