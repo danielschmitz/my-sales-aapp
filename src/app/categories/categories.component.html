@@ -20,6 +20,7 @@
       matSort
       aria-label="Elements"
       [dataSource]="dataSource"
+      fxHide.xs
     >
       <!-- Id Column -->
       <ng-container matColumnDef="id">
@@ -57,6 +58,20 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+
+    <div fxHide fxShow.xs fxLayoutGap="10">
+      <mat-action-list>
+        <mat-list-item
+          *ngFor="let item of dataSource.data"
+          (click)="onEditCategoryClick(item)"
+        >
+          <h3 matLine>
+            <strong>{{ item.name }}</strong>
+          </h3>
+          <p matLine>{{ item.description }}</p>
+        </mat-list-item>
+      </mat-action-list>
+    </div>
 
     <mat-paginator
       #paginator
