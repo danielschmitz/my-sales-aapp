@@ -34,6 +34,7 @@ import { SuppliersEditComponent } from './suppliers/suppliers-edit/suppliers-edi
 import { SuppliersNewComponent } from './suppliers/suppliers-new/suppliers-new.component';
 import { SuppliersFormComponent } from './suppliers/suppliers-form/suppliers-form.component';
 import { SuppliersDeleteComponent } from './suppliers/suppliers-delete/suppliers-delete.component';
+import { SuppliersShowComponent } from './suppliers/suppliers-show/suppliers-show.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { SuppliersDeleteComponent } from './suppliers/suppliers-delete/suppliers
     SuppliersNewComponent,
     SuppliersFormComponent,
     SuppliersDeleteComponent,
+    SuppliersShowComponent,
       ],
   imports: [
     BrowserModule,
