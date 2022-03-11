@@ -8,12 +8,21 @@
 
         <div fxLayout="row wrap">
             <div *ngFor="let supplier of suppliers" style="padding:10px;">
-                <mat-card class="mat-elevation-z1">
+                <a 
+                    [routerLink]="['/suppliers/show/',supplier.id]"
+                    style="text-decoration: none;"
+                >
+                <mat-card class="mat-elevation-z1"
+                    class="blueOver"
+                    >
                     <mat-card-content>
-                        <strong>{{supplier.contactName}}</strong> <br/>
-                        {{supplier.companyName}}
+                        
+                            <strong>{{supplier.contactName}}</strong> <br />
+                            {{supplier.companyName}}
+                        
                     </mat-card-content>
                 </mat-card>
+            </a>
             </div>
         </div>
 
