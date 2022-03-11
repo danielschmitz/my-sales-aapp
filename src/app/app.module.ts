@@ -28,6 +28,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LoadingBarComponent } from './loading-bar.component';
+import { SuppliersComponent } from './suppliers/suppliers.component';
+import { SuppliersListComponent } from './suppliers/suppliers-list/suppliers-list.component';
+import { SuppliersEditComponent } from './suppliers/suppliers-edit/suppliers-edit.component';
+import { SuppliersNewComponent } from './suppliers/suppliers-new/suppliers-new.component';
+import { SuppliersFormComponent } from './suppliers/suppliers-form/suppliers-form.component';
+import { SuppliersDeleteComponent } from './suppliers/suppliers-delete/suppliers-delete.component';
 
 
 @NgModule({
@@ -39,6 +45,12 @@ import { LoadingBarComponent } from './loading-bar.component';
     DashboardComponent,
     FormComponent,
     LoadingBarComponent,
+    SuppliersComponent,
+    SuppliersListComponent,
+    SuppliersEditComponent,
+    SuppliersNewComponent,
+    SuppliersFormComponent,
+    SuppliersDeleteComponent,
       ],
   imports: [
     BrowserModule,
