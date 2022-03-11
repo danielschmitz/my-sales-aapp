@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-suppliers-show',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuppliersShowComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:ActivatedRoute) { }
+
+  id:string='';
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id') || '';
+    
   }
 
 }
