@@ -1,1 +1,23 @@
-<p>suppliers-list works!</p>
+<div>
+
+    <mat-card-subtitle>
+        Listing all Suppliers
+    </mat-card-subtitle>
+
+    <mat-card-content>
+
+        <div fxLayout="row wrap">
+            <div *ngFor="let supplier of suppliers" style="padding:10px;">
+                <mat-card class="mat-elevation-z1">
+                    <mat-card-content>
+                        <strong>{{supplier.contactName}}</strong> <br/>
+                        {{supplier.companyName}}
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+    </mat-card-content>
+
+
+</div>
