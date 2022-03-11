@@ -12,16 +12,16 @@ export class SupplierService {
   constructor(private http: HttpClient) {}
 
   public getAll(): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>(environment.api + 'supplier');
+    return this.http.get<Supplier[]>(environment.api + 'suppliers');
   }
 
   public save(Supplier: Supplier): Observable<Supplier> {
     if (Supplier.id) return this.http.put<Supplier>(environment.api + 'supplier/' + Supplier.id, Supplier);
 
-    return this.http.post<Supplier>(environment.api + 'supplier', Supplier);
+    return this.http.post<Supplier>(environment.api + 'suppliers', Supplier);
   }
 
   public delete(id: number) {
-    return this.http.delete(environment.api + 'supplier/' + id);
+    return this.http.delete(environment.api + 'suppliers/' + id);
   }
 }
