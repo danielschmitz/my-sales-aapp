@@ -15,6 +15,10 @@ export class SupplierService {
     return this.http.get<Supplier[]>(environment.api + 'suppliers');
   }
 
+  public getById(id:Number) : Observable<Supplier> {
+    return this.http.get<Supplier>(environment.api + 'suppliers/' + id);
+  }
+
   public save(Supplier: Supplier): Observable<Supplier> {
     if (Supplier.id) return this.http.put<Supplier>(environment.api + 'supplier/' + Supplier.id, Supplier);
 

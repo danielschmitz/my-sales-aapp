@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
+import { Supplier } from '../supplier.dto';
+import { SupplierService } from '../supplier.service';
 
 @Component({
   selector: 'app-suppliers-show',
@@ -9,13 +12,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SuppliersShowComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(
+    private route:ActivatedRoute,
+    private supplierService:SupplierService
+    ) { }
 
-  id:string='';
+  id!:Number;
+  supplier!: Supplier;
 
-  ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id') || '';
-    
+  async ngOnInit() {
+    this.id = +(this.route.snapshot.paramMap.get('id')||0);
+
+    if (this.id) {
+      this.supplier = await lastValueFrom(this.supplierService.getById(this.id))
+    }
+
+
   }
 
 }
