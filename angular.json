@@ -11,6 +11,10 @@
       "schematics": {
         "@schematics/angular:application": {
           "strict": true
+        },
+        "@schematics/angular:component": {
+          "inlineStyle": true,
+          "skipTests": true
         }
       },
       "root": "",
