@@ -1,14 +1,32 @@
 <div>
 
-    <br/>
+    <br />
 
     <mat-card-content>
 
         <h3>{{supplier?.contactName}}</h3>
         <div>{{supplier?.companyName}}</div>
-        <br/><br/>
+        <br /><br />
         <div>{{supplier?.address|json}}</div>
-
+        <br /><br />
+        <div>
+            <dl>
+                <dt>Street</dt>
+                <dd>{{supplier?.address?.street}}</dd>
+            </dl>
+            <dl>
+                <dt>Location</dt>
+                <dd>{{supplier?.address?.city}}, {{supplier?.address?.region}} - {{supplier?.address?.country}}</dd>
+            </dl>
+            <dl>
+                <dt>PO Box</dt>
+                <dd>{{supplier?.address?.postalCode}}</dd>
+            </dl>
+            <dl>
+                <dt>Phone</dt>
+                <dd>{{supplier?.address?.phone}}</dd>
+            </dl>
+        </div>
     </mat-card-content>
 
     <mat-card-actions>
@@ -18,7 +36,7 @@
 
     <mat-card-actions>
         <button mat-button>Back</button>
-       
+
     </mat-card-actions>
 
 </div>
