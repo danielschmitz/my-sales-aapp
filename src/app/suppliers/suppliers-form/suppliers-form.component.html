@@ -1,1 +1,92 @@
-<p>suppliers-form works!</p>
+
+  <form [formGroup]="supplierForm" (submit)="onSubmit()" novalidate>
+    <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutWrap fxLayoutGap="10">
+
+        <!-- Company Name -->
+        <mat-form-field fxFlex="100%">
+            <input matInput placeholder="Company Name" formControlName="companyName" />
+            <mat-error *ngIf="supplierForm.get('companyName')?.hasError('required')">
+                Company Name is required
+            </mat-error>
+            <mat-error *ngIf="supplierForm.get('companyName')?.hasError('minlength')">
+                Company Name is too short
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Contact Title -->
+        <mat-form-field fxFlex="30%">
+            <input matInput placeholder="Contact Title" formControlName="contactTitle" />
+            <mat-error *ngIf="supplierForm.get('contactTitle')?.hasError('required')">
+                Contact Title is required
+            </mat-error>
+            <mat-error *ngIf="supplierForm.get('contactTitle')?.hasError('minlength')">
+                Contact Title is too short
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Company Name -->
+        <mat-form-field fxFlex="60%">
+            <input matInput placeholder="Contact Name" formControlName="contactName" />
+            <mat-error *ngIf="supplierForm.get('contactName')?.hasError('required')">
+                Contact Name is required
+            </mat-error>
+            <mat-error *ngIf="supplierForm.get('contactName')?.hasError('minlength')">
+                Contact Name is too short
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <br />
+
+    <mat-card-subtitle>Address</mat-card-subtitle>
+
+    <div fxLayout="row wrap" 
+        fxLayout.lt-md="column" 
+        fxLayoutWrap fxLayoutGap="10" 
+        formGroupName="address">
+
+        <!-- Street -->
+        <mat-form-field fxFlex="100%">
+            <input matInput placeholder="Street" formControlName="street" />
+        </mat-form-field>
+
+         <!-- City -->
+         <mat-form-field fxFlex="30%">
+            <input matInput placeholder="City" formControlName="city" />
+        </mat-form-field>
+
+          <!-- Region -->
+          <mat-form-field fxFlex="30%">
+            <input matInput placeholder="Region" formControlName="region" />
+        </mat-form-field>
+
+          <!-- Country -->
+          <mat-form-field fxFlex="30%">
+            <input matInput placeholder="Country" formControlName="country" />
+        </mat-form-field>
+
+          <!-- Postal Code -->
+          <mat-form-field fxFlex="30%">
+            <input matInput placeholder="Postal Code" formControlName="postalCode" />
+        </mat-form-field>
+
+          <!-- Phone -->
+          <mat-form-field fxFlex="30%">
+            <input matInput placeholder="Phone" formControlName="phone" />
+        </mat-form-field>
+
+
+    </div>
+
+    <mat-card-actions>
+        <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="supplierForm.invalid"
+      >
+        Save
+      </button>
+    </mat-card-actions>
+
+</form>
