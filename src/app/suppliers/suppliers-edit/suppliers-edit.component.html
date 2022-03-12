@@ -1,1 +1,29 @@
-<p>suppliers-edit works!</p>
+<div>
+
+    <mat-card>
+        <mat-card-header>Edit Supplier</mat-card-header>
+        <mat-card-content>
+
+            <form [formGroup]="supplierForm" (submit)="onSubmit()" novalidate>
+                <div fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap fxLayoutGap="10">
+
+                    <!-- Company Name -->
+                    <mat-form-field fxFlex="30%">
+                        <input matInput placeholder="Company Name" formControlName="companyName" />
+                        <mat-error *ngIf="supplierForm.get('companyName')?.hasError('required')">
+                            Company Name is required
+                        </mat-error>
+                        <mat-error *ngIf="supplierForm.get('companyName')?.hasError('minlength')">
+                            Company Name is too short
+                        </mat-error>
+                    </mat-form-field>
+
+
+                </div>
+            </form>
+
+        </mat-card-content>
+    </mat-card>
+
+
+</div>
