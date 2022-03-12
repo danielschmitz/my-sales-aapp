@@ -1,8 +1,9 @@
 <div>
 
     <mat-card>
-        <mat-card-header>Edit Supplier</mat-card-header>
-        <mat-card-content>
+        <mat-card-title>Edit Supplier</mat-card-title>
+        <br />
+        <mat-card-content *ngIf="supplier | async; else loading">
 
             <form [formGroup]="supplierForm" (submit)="onSubmit()" novalidate>
                 <div fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap fxLayoutGap="10">
@@ -23,6 +24,12 @@
             </form>
 
         </mat-card-content>
+
+        <ng-template #loading>
+            <app-loading-bar [visible]="true"></app-loading-bar>
+        </ng-template>
+
+
     </mat-card>
 
 
