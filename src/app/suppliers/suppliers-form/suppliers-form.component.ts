@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Supplier } from '../supplier.dto';
 
@@ -11,6 +11,7 @@ import { Supplier } from '../supplier.dto';
 export class SuppliersFormComponent implements OnInit {
 
   @Input() supplier!:Supplier;
+  @Output() save = new EventEmitter<Supplier>();
   supplierForm!: FormGroup;
 
   constructor(private fb:FormBuilder) { }
@@ -18,7 +19,7 @@ export class SuppliersFormComponent implements OnInit {
   ngOnInit(): void {
 
     this.supplierForm = this.fb.group({
-      id: [''],
+      id: [this.supplier.id],
       companyName: [this.supplier.companyName, [Validators.required, Validators.minLength(3)]],
       contactName: [this.supplier.contactName,[Validators.required, Validators.minLength(3)]],
       contactTitle: [this.supplier.contactTitle],
@@ -37,7 +38,8 @@ export class SuppliersFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('onSubmit')
+    console.log('onSubmit');
+    this.save.emit(this.supplierForm.value);
   }
 
 }

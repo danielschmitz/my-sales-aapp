@@ -2,6 +2,8 @@
   <form [formGroup]="supplierForm" (submit)="onSubmit()" novalidate>
     <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutWrap fxLayoutGap="10">
 
+        <input type="hidden" formControlName="id">
+        
         <!-- Company Name -->
         <mat-form-field fxFlex="100%">
             <input matInput placeholder="Company Name" formControlName="companyName" />
@@ -84,6 +86,7 @@
         color="primary"
         type="submit"
         [disabled]="supplierForm.invalid"
+        (click)="onSubmit"
       >
         Save
       </button>

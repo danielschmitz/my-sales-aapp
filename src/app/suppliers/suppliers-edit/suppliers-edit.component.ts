@@ -31,8 +31,10 @@ export class SuppliersEditComponent implements OnInit {
 
   }
 
-  onSubmit() {
-    console.log('submit')
+  async onSave(supplier:Supplier) {
+    console.log('save', supplier)
+    this.supplierObservable = this.supplierService.save(supplier);
+    this.supplier = await lastValueFrom(this.supplierObservable);
   }
 
 }
