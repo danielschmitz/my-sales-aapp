@@ -35,6 +35,7 @@ import { SuppliersNewComponent } from './suppliers/suppliers-new/suppliers-new.c
 import { SuppliersFormComponent } from './suppliers/suppliers-form/suppliers-form.component';
 import { SuppliersDeleteComponent } from './suppliers/suppliers-delete/suppliers-delete.component';
 import { SuppliersShowComponent } from './suppliers/suppliers-show/suppliers-show.component';
+import { CategoriesLoadingAsyncComponent } from './categories/categories-loading-async/categories-loading-async.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { SuppliersShowComponent } from './suppliers/suppliers-show/suppliers-sho
     SuppliersFormComponent,
     SuppliersDeleteComponent,
     SuppliersShowComponent,
+    CategoriesLoadingAsyncComponent,
       ],
   imports: [
     BrowserModule,
