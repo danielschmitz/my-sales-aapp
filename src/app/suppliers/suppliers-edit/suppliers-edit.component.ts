@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
+import { Supplier } from '../supplier.dto';
+import { SupplierService } from '../supplier.service';
 
 @Component({
   selector: 'app-suppliers-edit',
@@ -8,9 +12,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuppliersEditComponent implements OnInit {
 
-  constructor() { }
+  id!:Number;
+  supplier!: Supplier;
 
-  ngOnInit(): void {
+  constructor(
+    private route:ActivatedRoute,
+    private supplierService:SupplierService
+    ) { }
+
+  async ngOnInit() {
+    this.id = +(this.route.snapshot.paramMap.get('id')||0);
+
+    if (this.id) {
+      this.supplier = await lastValueFrom(this.supplierService.getById(this.id))
+    }
   }
 
 }
