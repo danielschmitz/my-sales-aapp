@@ -34,9 +34,7 @@ export class SuppliersNewComponent implements OnInit {
   }
 
   async onSave(supplier: Supplier) {
-    console.log('save new supplier', supplier);
     const result = await lastValueFrom(this.supplierService.save(supplier));
-    console.log('result new supplier', result)
     this.router.navigate(['/suppliers/show',result.id]);
   }
 
