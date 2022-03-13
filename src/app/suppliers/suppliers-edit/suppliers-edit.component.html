@@ -4,7 +4,8 @@
         <mat-card-title>Edit Supplier</mat-card-title>
         <br />
         <mat-card-content *ngIf="supplierObservable | async; else loading">
-          <app-suppliers-form [supplier]="supplier" (save)="onSave($event)"></app-suppliers-form>
+            <app-suppliers-form [supplier]="supplier"
+                                (save)="onSave($event)"></app-suppliers-form>
         </mat-card-content>
 
         <ng-template #loading>
