@@ -13,12 +13,12 @@ export class SuppliersListComponent implements OnInit {
 
   suppliers: Supplier[] = [];
 
-  constructor(private supplierService:SupplierService) { }
+  constructor(private supplierService: SupplierService) { }
 
   async ngOnInit() {
 
     try {
-      
+
       this.suppliers = await lastValueFrom(this.supplierService.getAll());
 
     } catch (error) {

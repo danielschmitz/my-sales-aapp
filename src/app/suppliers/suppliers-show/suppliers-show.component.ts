@@ -13,15 +13,15 @@ import { SupplierService } from '../supplier.service';
 export class SuppliersShowComponent implements OnInit {
 
   constructor(
-    private route:ActivatedRoute,
-    private supplierService:SupplierService
-    ) { }
+    private route: ActivatedRoute,
+    private supplierService: SupplierService
+  ) { }
 
-  id!:Number;
+  id!: Number;
   supplier!: Supplier;
 
   async ngOnInit() {
-    this.id = +(this.route.snapshot.paramMap.get('id')||0);
+    this.id = +(this.route.snapshot.paramMap.get('id') || 0);
 
     if (this.id) {
       this.supplier = await lastValueFrom(this.supplierService.getById(this.id))

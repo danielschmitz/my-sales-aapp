@@ -10,18 +10,18 @@ import { Supplier } from '../supplier.dto';
 })
 export class SuppliersFormComponent implements OnInit {
 
-  @Input() supplier!:Supplier;
+  @Input() supplier!: Supplier;
   @Output() save = new EventEmitter<Supplier>();
   supplierForm!: FormGroup;
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
 
     this.supplierForm = this.fb.group({
       id: [this.supplier.id],
       companyName: [this.supplier.companyName, [Validators.required, Validators.minLength(3)]],
-      contactName: [this.supplier.contactName,[Validators.required, Validators.minLength(3)]],
+      contactName: [this.supplier.contactName, [Validators.required, Validators.minLength(3)]],
       contactTitle: [this.supplier.contactTitle],
       address: this.fb.group(
         {
