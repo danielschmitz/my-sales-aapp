@@ -1,1 +1,23 @@
-<p>suppliers-new works!</p>
+<div>
+
+    <mat-card>
+        <mat-card-title>New Supplier</mat-card-title>
+        <br />
+        <mat-card-content>
+            <app-suppliers-form [supplier]="supplier"
+                                (save)="onSave($event)"></app-suppliers-form>
+
+        </mat-card-content>
+
+
+        <mat-card-actions>
+            <button mat-button
+                    [routerLink]="['/suppliers']">
+                Back
+            </button>
+        </mat-card-actions>
+
+    </mat-card>
+
+
+</div>

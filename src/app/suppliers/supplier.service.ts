@@ -19,10 +19,12 @@ export class SupplierService {
     return this.http.get<Supplier>(environment.api + 'suppliers/' + id);
   }
 
-  public save(Supplier: Supplier): Observable<Supplier> {
-    if (Supplier.id) return this.http.put<Supplier>(environment.api + 'suppliers/' + Supplier.id, Supplier);
+  public save(supplier: Supplier): Observable<Supplier> {
+    console.log('supplier.id?', supplier.id)
+    if (supplier.id) return this.http.put<Supplier>(environment.api + 'suppliers/' + supplier.id, supplier);
 
-    return this.http.post<Supplier>(environment.api + 'suppliers', Supplier);
+    console.log('new supplier')
+    return this.http.post<Supplier>(environment.api + 'suppliers', supplier);
   }
 
   public delete(id: number) {
