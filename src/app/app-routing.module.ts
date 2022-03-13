@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CategoriesLoadingAsyncComponent } from './categories/categories-loading-async/categories-loading-async.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SuppliersDeleteComponent } from './suppliers/suppliers-delete/suppliers-delete.component';
 import { SuppliersEditComponent } from './suppliers/suppliers-edit/suppliers-edit.component';
 import { SuppliersListComponent } from './suppliers/suppliers-list/suppliers-list.component';
 import { SuppliersNewComponent } from './suppliers/suppliers-new/suppliers-new.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'edit/:id',
         component: SuppliersEditComponent
+      },
+      {
+        path: 'delete/:id',
+        component: SuppliersDeleteComponent
       },
       {
         path: 'new',
