@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { lastValueFrom, Observable } from 'rxjs';
 import { Supplier } from '../supplier.dto';
 import { SupplierService } from '../supplier.service';
@@ -18,6 +18,7 @@ export class SuppliersEditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private supplierService: SupplierService,
   ) { }
 
@@ -35,6 +36,7 @@ export class SuppliersEditComponent implements OnInit {
     console.log('save', supplier)
     this.supplierObservable = this.supplierService.save(supplier);
     this.supplier = await lastValueFrom(this.supplierObservable);
+    this.router.navigate(['/suppliers/show/',supplier?.id]);
   }
 
 }
