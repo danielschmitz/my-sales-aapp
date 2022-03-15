@@ -11,22 +11,14 @@ import { SupplierService } from '../supplier.service';
 })
 export class SuppliersListComponent implements OnInit {
 
-  suppliers: Supplier[] = [];
+  suppliers!: Supplier[];
   supplierObservable!: Observable<Supplier[]>;
 
   constructor(private supplierService: SupplierService) { }
 
   async ngOnInit() {
-
-    try {
-
       this.supplierObservable = this.supplierService.getAll();
       this.suppliers = await lastValueFrom(this.supplierObservable);
-
-    } catch (error) {
-      console.error(error)
-    }
-
   }
 
 }
