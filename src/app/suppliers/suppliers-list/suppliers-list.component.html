@@ -6,13 +6,12 @@
 
     <mat-card-content *ngIf="supplierObservable | async; else loading">
 
-        <div fxLayout="row wrap">
+        <div fxLayout="row wrap" fxLayoutGap="10px grid">
             <div *ngFor="let supplier of suppliers"
-                 style="padding:10px;">
+                 >
                 <a [routerLink]="['/suppliers/show/',supplier.id]"
                    style="text-decoration: none;">
-                    <mat-card class="mat-elevation-z1"
-                              class="blueOver">
+                    <mat-card class="blueOver">
                         <mat-card-content>
 
                             <strong>{{supplier.contactName}}</strong> <br />
