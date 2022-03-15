@@ -38,7 +38,6 @@ export class SuppliersFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('onSubmit');
     this.save.emit(this.supplierForm.value);
   }
 

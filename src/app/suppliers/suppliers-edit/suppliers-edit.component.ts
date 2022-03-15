@@ -24,16 +24,12 @@ export class SuppliersEditComponent implements OnInit {
 
   async ngOnInit() {
     this.id = +(this.route.snapshot.paramMap.get('id') || 0);
-
-    if (this.id) {
-      this.supplierObservable = this.supplierService.getById(this.id)
-      this.supplier = await lastValueFrom(this.supplierObservable)
-    }
+    this.supplierObservable = this.supplierService.getById(this.id)
+    this.supplier = await lastValueFrom(this.supplierObservable)
 
   }
 
   async onSave(supplier: Supplier) {
-    console.log('save', supplier)
     this.supplierObservable = this.supplierService.save(supplier);
     this.supplier = await lastValueFrom(this.supplierObservable);
     this.router.navigate(['/suppliers/show/',supplier?.id]);

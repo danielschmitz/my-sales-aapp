@@ -1,28 +1,22 @@
-<div>
+<mat-card>
+    <mat-card-title>Edit Supplier</mat-card-title>
+    <br />
+    <mat-card-content *ngIf="supplierObservable | async; else loading">
+        <app-suppliers-form [supplier]="supplier"
+                            (save)="onSave($event)"></app-suppliers-form>
 
-    <mat-card>
-        <mat-card-title>Edit Supplier</mat-card-title>
-        <br />
-        <mat-card-content *ngIf="supplierObservable | async; else loading">
-            <app-suppliers-form [supplier]="supplier"
-                                (save)="onSave($event)"></app-suppliers-form>
+    </mat-card-content>
 
-        </mat-card-content>
+    <ng-template #loading>
+        <app-loading-bar [visible]="true"></app-loading-bar>
+    </ng-template>
 
-        <ng-template #loading>
-            <app-loading-bar [visible]="true"></app-loading-bar>
-        </ng-template>
+    <mat-card-actions>
+        <button mat-button
+                [routerLink]="['/suppliers/show/',supplier?.id]">
+            Back
+        </button>
 
-        <mat-card-actions>
-            <button mat-button
-                   
-                    [routerLink]="['/suppliers/show/',supplier?.id]">
-                Back
-            </button>
-           
-        </mat-card-actions>
+    </mat-card-actions>
 
-    </mat-card>
-
-
-</div>
+</mat-card>
