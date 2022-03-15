@@ -35,29 +35,12 @@ export class CategoriesComponent implements OnInit {
 
   category!: Category;
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.refreshData();
   }
 
-  // refreshData() {
-  //   this.showLoading = true;
-
-  //   this.categoryService.getAll().subscribe((categories) => {
-  //     this.dataSource = new MatTableDataSource(categories);
-  //     // this.table.dataSource = this.dataSource;
-  //     this.dataSource.sort = this.sort;
-  //     this.dataSource.paginator = this.paginator;
-
-  //     // just a test to see loading bar
-  //     setTimeout(() => {
-  //       this.showLoading = false;
-  //     }, 2000);
-
-  //   });
-
-  // }
 
   async refreshData() {
     this.showLoading = true;
@@ -77,9 +60,7 @@ export class CategoriesComponent implements OnInit {
       console.log("opsss!!", error);
 
     } finally {
-      setTimeout(() => {
-        this.showLoading = false;
-      }, 2000);
+      this.showLoading = false;
     }
 
   }
@@ -121,11 +102,9 @@ export class CategoriesComponent implements OnInit {
     this.categoryService.save(category).subscribe((categorySaved) => {
       console.log('category saved:', categorySaved);
 
-      setTimeout(() => {
-        this.showForm = false;
-        this.refreshData();
-        this.showLoadingForm = false;
-      }, 2000);
+      this.showForm = false;
+      this.refreshData();
+      this.showLoadingForm = false;
     });
   }
 }

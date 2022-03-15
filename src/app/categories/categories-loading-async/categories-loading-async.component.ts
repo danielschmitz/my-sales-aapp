@@ -14,13 +14,11 @@ export class CategoriesLoadingAsyncComponent implements OnInit {
   categoriesObservable!: Observable<Category[]>;
   categories: Category[] = [];
 
-  constructor(private categoriesService:CategoryService) { }
+  constructor(private categoriesService: CategoryService) { }
 
   async ngOnInit() {
-    setTimeout(async () => {
-      this.categoriesObservable = this.categoriesService.getAll();
-      this.categories = await lastValueFrom(this.categoriesObservable)
-    }, 1000);   
+    this.categoriesObservable = this.categoriesService.getAll();
+    this.categories = await lastValueFrom(this.categoriesObservable)
   }
 
 }
