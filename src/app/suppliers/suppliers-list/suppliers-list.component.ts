@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 import { Supplier } from '../supplier.dto';
 import { SupplierService } from '../supplier.service';
 
@@ -12,6 +12,7 @@ import { SupplierService } from '../supplier.service';
 export class SuppliersListComponent implements OnInit {
 
   suppliers: Supplier[] = [];
+  supplierObservable!: Observable<Supplier[]>;
 
   constructor(private supplierService: SupplierService) { }
 
@@ -19,7 +20,8 @@ export class SuppliersListComponent implements OnInit {
 
     try {
 
-      this.suppliers = await lastValueFrom(this.supplierService.getAll());
+      this.supplierObservable = this.supplierService.getAll();
+      this.suppliers = await lastValueFrom(this.supplierObservable);
 
     } catch (error) {
       console.error(error)

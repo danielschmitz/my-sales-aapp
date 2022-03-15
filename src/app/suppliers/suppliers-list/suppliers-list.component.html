@@ -4,7 +4,7 @@
         Listing all Suppliers
     </mat-card-subtitle>
 
-    <mat-card-content>
+    <mat-card-content *ngIf="supplierObservable | async; else loading">
 
         <div fxLayout="row wrap">
             <div *ngFor="let supplier of suppliers"
@@ -25,6 +25,10 @@
         </div>
 
     </mat-card-content>
+
+    <ng-template #loading>
+        <app-loading-bar [visible]="true"></app-loading-bar>
+    </ng-template>
 
     <mat-card-actions>
         <button mat-raised-button
