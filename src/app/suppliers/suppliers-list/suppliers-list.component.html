@@ -6,20 +6,20 @@
 
     <mat-card-content *ngIf="supplierObservable | async; else loading">
 
-        <div fxLayout="row wrap" fxLayoutGap="10px grid">
-            <div *ngFor="let supplier of suppliers"
-                 >
-                <a [routerLink]="['/suppliers/show/',supplier.id]"
-                   style="text-decoration: none;">
-                    <mat-card class="blueOver">
-                        <mat-card-content>
+        <div fxLayout="row wrap"
+             fxLayoutGap="10px grid">
+            <div *ngFor="let supplier of suppliers">
 
-                            <strong>{{supplier.contactName}}</strong> <br />
-                            {{supplier.companyName}}
+                <mat-card [routerLink]="['/suppliers/show/',supplier.id]"
+                          class="blueOver">
+                    <mat-card-content>
 
-                        </mat-card-content>
-                    </mat-card>
-                </a>
+                        <strong>{{supplier.contactName}}</strong> <br />
+                        {{supplier.companyName}}
+
+                    </mat-card-content>
+                </mat-card>
+
             </div>
         </div>
 
@@ -31,9 +31,9 @@
 
     <mat-card-actions>
         <button mat-raised-button
-        color="primary"
+                color="primary"
                 [routerLink]="['/suppliers/new']">
-            New 
+            New
         </button>
     </mat-card-actions>
 

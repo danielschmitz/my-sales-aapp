@@ -26,8 +26,5 @@ export class SuppliersShowComponent implements OnInit {
     if (this.id) {
       this.supplier = await lastValueFrom(this.supplierService.getById(this.id))
     }
-
-
   }
-
 }
