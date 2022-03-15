@@ -25,7 +25,7 @@ export class SupplierService {
     return this.http.post<Supplier>(environment.api + 'suppliers', supplier);
   }
 
-  public delete(id: number) {
-    return this.http.delete(environment.api + 'suppliers/' + id);
+  public delete(id?: number): Observable<Supplier> {
+    return this.http.delete<Supplier>(environment.api + 'suppliers/' + id);
   }
 }

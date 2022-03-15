@@ -25,11 +25,11 @@ export class SuppliersDeleteComponent implements OnInit {
     const id: Number = +(this.route.snapshot.paramMap.get('id') || 0)
     this.supplierObservable = this.supplierService.getById(id);
     this.supplier = await lastValueFrom(this.supplierObservable);
-    console.log("supplier", this.supplier);
   }
 
   async confirmDelete() {
-    await lastValueFrom(this.supplierService.delete(this.supplier.id || 0))
+    this.supplierObservable = this.supplierService.delete(this.supplier.id)
+    await lastValueFrom(this.supplierObservable)
     this.router.navigate(['/suppliers']);
   }
 

@@ -1,21 +1,21 @@
 <div>
 
-<mat-card *ngIf="supplierObservable | async; else loading">
-    <mat-card-content>
-        Delete "{{supplier.contactName}}"?
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button color="warn"
-            (click)="confirmDelete()"
-        >Yes</button>
-        <button mat-button color="primary"
-            [routerLink]="['/suppliers/show',supplier.id]"
-        >no</button>
-    </mat-card-actions>
-</mat-card>
+    <mat-card *ngIf="supplierObservable | async; else loading">
+        <mat-card-content>
+            Delete "{{supplier.contactName}}"?
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button
+                    color="warn"
+                    (click)="confirmDelete()">Yes</button>
+            <button mat-button
+                    color="primary"
+                    [routerLink]="['/suppliers/show',supplier.id]">no</button>
+        </mat-card-actions>
+    </mat-card>
 
-<ng-template #loading>
-    Loading...
-</ng-template>
+    <ng-template #loading>
+        <app-loading-bar [visible]="true"></app-loading-bar>
+    </ng-template>
 
 </div>
