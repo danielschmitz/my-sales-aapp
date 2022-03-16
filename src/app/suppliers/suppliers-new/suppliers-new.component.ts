@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 import { Supplier } from '../supplier.dto';
 import { SupplierService } from '../supplier.service';
 
@@ -12,30 +12,24 @@ import { SupplierService } from '../supplier.service';
 })
 export class SuppliersNewComponent implements OnInit {
 
-  supplier: Supplier = {
-    companyName: '',
-    contactName: '',
-    contactTitle: '',
-    address: {
-      city: '',
-      phone: '',
-      country: '',
-      postalCode: 0,
-      region: '',
-      street: ''
-    }
-  }
+  supplierObservable!: Observable<Supplier>;
+  supplier!: Supplier
 
   constructor(private supplierService: SupplierService,
     private router: Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.supplierObservable = this.supplierService.create();
+    this.supplierObservable.subscribe( supplier => {
+      this.supplier = supplier;
+    })
   }
 
   async onSave(supplier: Supplier) {
-    const result = await lastValueFrom(this.supplierService.save(supplier));
-    this.router.navigate(['/suppliers/show',result.id]);
+    this.supplierObservable = this.supplierService.save(supplier)
+    const result = await lastValueFrom(this.supplierObservable);
+    this.router.navigate(['/suppliers/show', result.id]);
   }
 
 }

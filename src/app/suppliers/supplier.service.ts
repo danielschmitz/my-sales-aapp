@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Supplier } from './supplier.dto';
 
@@ -28,4 +28,22 @@ export class SupplierService {
   public delete(id?: number): Observable<Supplier> {
     return this.http.delete<Supplier>(environment.api + 'suppliers/' + id);
   }
+
+  public create(): Observable<Supplier> {
+    return of<Supplier>({
+      id: 0,
+      companyName: '',
+      contactName: '',
+      contactTitle: '',
+      address: {
+        city: '',
+        phone: '',
+        country: '',
+        postalCode: 0,
+        region: '',
+        street: ''
+      }
+    })
+  }
+
 }

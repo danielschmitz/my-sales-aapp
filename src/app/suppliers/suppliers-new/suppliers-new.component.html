@@ -3,11 +3,16 @@
     <mat-card>
         <mat-card-title>New Supplier</mat-card-title>
         <br />
-        <mat-card-content>
+
+        <mat-card-content *ngIf="supplierObservable | async; else loading">
             <app-suppliers-form [supplier]="supplier"
                                 (save)="onSave($event)"></app-suppliers-form>
 
         </mat-card-content>
+
+        <ng-template #loading>
+            <app-loading-bar [visible]="true"></app-loading-bar>
+        </ng-template>
 
 
         <mat-card-actions>
