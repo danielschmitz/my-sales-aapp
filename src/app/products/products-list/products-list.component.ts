@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { lastValueFrom, Observable } from 'rxjs';
+import { Product } from '../product.dto';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-products-list',
@@ -8,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsListComponent implements OnInit {
 
-  constructor() { }
+  products!: Product[];
+  productObservable!: Observable<Product[]>;
 
-  ngOnInit(): void {
+  constructor(private productService: ProductService) { }
+
+  async ngOnInit() {
+    this.productObservable = this.productService.getAll();
+    this.products = await lastValueFrom(this.productObservable);
   }
 
 }
