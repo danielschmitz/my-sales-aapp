@@ -17,8 +17,6 @@ export class SuppliersFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    console.log(5)
-    console.log(6,this.supplier.id)
     this.supplierForm = this.fb.group({
       id: [this.supplier.id],
       companyName: [this.supplier.companyName, [Validators.required, Validators.minLength(3)]],

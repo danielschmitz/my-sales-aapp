@@ -11,8 +11,9 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  public getAll(discontinued: Boolean = false): Observable<Product[]> {
-    return this.http.get<Product[]>(environment.api + 'products?_expand=category&_expand=supplier');
+  public getAll(discontinued: Boolean = false, search: string = ''): Observable<Product[]> {
+    const searchTerm = search != '' ? '&q=' + search : ''
+    return this.http.get<Product[]>(environment.api + 'products?_expand=category&_expand=supplier' + searchTerm);
   }
 
   public getById(id: Number): Observable<Product> {
