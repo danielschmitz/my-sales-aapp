@@ -1,6 +1,9 @@
+import { _isTestEnvironment } from '@angular/cdk/platform';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { lastValueFrom, Observable } from 'rxjs';
+import { CartItem } from 'src/app/cart.dto';
+import { CartService } from 'src/app/cart.service';
 import { Product } from '../product.dto';
 import { ProductService } from '../product.service';
 
@@ -17,7 +20,8 @@ export class ProductsListComponent implements OnInit {
   searchForm!: FormGroup;
 
   constructor(
-      private productService: ProductService, 
+      private productService: ProductService,
+      private cartServie: CartService,
       private fb: FormBuilder
     ) { }
 
@@ -35,6 +39,16 @@ export class ProductsListComponent implements OnInit {
 
   onSubmit() {
     this.getAllProducts(this.searchForm.value.searchTerm);
+  }
+
+  onAddToCart(item:Product) {
+    const cartItem: CartItem = {
+      idProduct: item.id,
+      name: item.name,
+      quantity: 1,
+      unitPrice: item.unitPrice
+    }
+    this.cartServie.addItem(cartItem);
   }
 
 }

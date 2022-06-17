@@ -34,7 +34,7 @@
                     Units in Stock: {{product.unitsInStock}}
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button [disabled]="product.unitsInStock==0">ADD to cart</button>
+                    <button mat-button (click)="onAddToCart(product)" [disabled]="product.unitsInStock==0">ADD to cart</button>
                   </mat-card-actions>
             </mat-card>
 
