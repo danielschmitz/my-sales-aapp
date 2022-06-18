@@ -37,13 +37,17 @@ export class CartService {
   }
 
   public removeItem(item: CartItem): void {
-    localStorage.setItem(
-      this.CART,
-      JSON.stringify(
-        this.getItems().filter(element =>
-          element.idProduct != item.idProduct)
-      )
-    );
+    let found = false;
+    const items = this.getItems();
+    items.forEach(element => {
+      if (element.idProduct === item.idProduct) {
+        element.quantity--;
+        found = true;
+      }
+    });
+    const newItens = items.filter(element => element.quantity > 0);
+    localStorage.setItem(this.CART, JSON.stringify(newItens));
+    localStorage.setItem(this.CART_QUANTITY, newItens.length.toString()); 
   }
 
   get itensInCart(): number {
@@ -54,7 +58,7 @@ export class CartService {
     let total = 0;
     const items = this.getItems();
     items.forEach(element => {
-      total += (element.unitPrice * element.unitPrice);
+      total += (element.unitPrice * element.quantity);
     });
     return total;
   }

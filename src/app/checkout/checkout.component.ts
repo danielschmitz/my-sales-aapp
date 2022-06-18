@@ -12,16 +12,15 @@ export class CheckoutComponent implements OnInit {
 
   constructor(public cartService: CartService) { }
 
-  ngOnInit(): void {
-  }
+  public items: Array<CartItem> = [];
 
-  get items() {
-    return this.cartService.getItems()
+  ngOnInit(): void {
+    this.items = this.cartService.getItems();
   }
 
   onRemoveItem(item:CartItem) {
-    console.log("remove");
     this.cartService.removeItem(item);
+    this.items = this.cartService.getItems();
   }
 
 }
