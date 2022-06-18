@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriesLoadingAsyncComponent } from './categories/categories-loading-async/categories-loading-async.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductsListComponent } from './products/products-list/products-list.component';
 import { ProductsComponent } from './products/products.component';
 import { SuppliersDeleteComponent } from './suppliers/suppliers-delete/suppliers-delete.component';
@@ -47,7 +48,9 @@ const routes: Routes = [
         component: ProductsListComponent
       },
     ]
-  }
+  },
+  { path: 'checkout', component: CheckoutComponent },
+
 ];
 
 

@@ -39,6 +39,7 @@ import { CategoriesLoadingAsyncComponent } from './categories/categories-loading
 import { ProductsComponent } from './products/products.component';
 import { ProductsListComponent } from './products/products-list/products-list.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     CategoriesLoadingAsyncComponent,
     ProductsComponent,
     ProductsListComponent,
+    CheckoutComponent,
       ],
   imports: [
     BrowserModule,
