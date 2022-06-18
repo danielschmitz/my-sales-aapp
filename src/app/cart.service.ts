@@ -12,7 +12,7 @@ export class CartService {
 
   constructor() { }
 
-  private getItems(): Array<CartItem> {
+  public getItems(): Array<CartItem> {
     const cartItems = localStorage.getItem(this.CART)
     if (cartItems) {
       return JSON.parse(cartItems);
