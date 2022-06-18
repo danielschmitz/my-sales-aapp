@@ -7,6 +7,8 @@ import { CartItem } from './cart.dto';
 export class CartService {
 
   readonly CART: string = 'cart';
+  readonly CART_QUANTITY: string = 'cart_quantity';
+
 
   constructor() { }
 
@@ -31,6 +33,7 @@ export class CartService {
       items.push(item);
     }
     localStorage.setItem(this.CART, JSON.stringify(items));
+    localStorage.setItem(this.CART_QUANTITY, items.length.toString()); 
   }
 
   public removeItem(item: CartItem): void {
@@ -43,7 +46,11 @@ export class CartService {
     );
   }
 
-  public total(): number {
+  get itensInCart(): number {
+    return this.getItems().length;
+  }
+
+  get total(): number {
     let total = 0;
     const items = this.getItems();
     items.forEach(element => {

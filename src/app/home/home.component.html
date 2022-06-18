@@ -16,6 +16,10 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Sales App</span>
+      <span class="spacer"></span>
+    
+      <mat-icon [matBadge]="cartService.itensInCart" matBadgeColor="warn">shopping_cart</mat-icon>
+   
     </mat-toolbar>
     <!-- Add Content Here -->
     <div class="m-10">

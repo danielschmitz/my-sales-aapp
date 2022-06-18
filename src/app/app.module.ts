@@ -38,6 +38,7 @@ import { SuppliersShowComponent } from './suppliers/suppliers-show/suppliers-sho
 import { CategoriesLoadingAsyncComponent } from './categories/categories-loading-async/categories-loading-async.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductsListComponent } from './products/products-list/products-list.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { ProductsListComponent } from './products/products-list/products-list.co
     MatFormFieldModule,
     MatInputModule,
     FlexLayoutModule,
-    MatProgressSpinnerModule    
+    MatProgressSpinnerModule,
+    MatBadgeModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
