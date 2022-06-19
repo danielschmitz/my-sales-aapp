@@ -33,7 +33,7 @@ export class ProductsListComponent implements OnInit {
   }
 
   async getAllProducts(searchTerm: string = '') {
-    this.productObservable = this.productService.getAll(false, searchTerm);
+    this.productObservable = this.productService.getAll(searchTerm);
     this.products = await lastValueFrom(this.productObservable);
   }
 
