@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Supplier } from '../supplier.dto';
 
 @Component({
@@ -12,9 +12,9 @@ export class SuppliersFormComponent implements OnInit {
 
   @Input() supplier!: Supplier;
   @Output() save = new EventEmitter<Supplier>();
-  supplierForm!: FormGroup;
+  supplierForm!: UntypedFormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.supplierForm = this.fb.group({

@@ -1,6 +1,6 @@
 import { _isTestEnvironment } from '@angular/cdk/platform';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { lastValueFrom, Observable } from 'rxjs';
 import { CartItem } from 'src/app/cart.dto';
 import { CartService } from 'src/app/cart.service';
@@ -17,12 +17,12 @@ export class ProductsListComponent implements OnInit {
 
   products!: Product[];
   productObservable!: Observable<Product[]>;
-  searchForm!: FormGroup;
+  searchForm!: UntypedFormGroup;
 
   constructor(
       private productService: ProductService,
       private cartServie: CartService,
-      private fb: FormBuilder
+      private fb: UntypedFormBuilder
     ) { }
 
   async ngOnInit() {
