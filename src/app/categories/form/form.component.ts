@@ -25,8 +25,8 @@ export class FormComponent implements OnInit {
   // })
   categoryForm = this.fb.group(
     {
-      id: [''],
-      name: ['',[Validators.required, Validators.minLength(3)]],
+      id: [0],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       description: ['']
     }
   )
@@ -42,12 +42,12 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log("submit on form.component.ts", this.categoryForm.value)
-    this.save.emit(this.categoryForm.value);
+    this.save.emit(this.categoryForm.value as Category);
   }
 
-  onBack(){
+  onBack() {
     this.back.emit();
   }
 
