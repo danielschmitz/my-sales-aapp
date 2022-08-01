@@ -13,7 +13,7 @@ export class FormComponent implements OnInit {
 
   @Output() back = new EventEmitter();
 
-  @Output() save = new EventEmitter<any>();
+  @Output() save = new EventEmitter<Category>();
 
   @Input() loading: Boolean = false;
 
@@ -25,14 +25,14 @@ export class FormComponent implements OnInit {
   // })
   categoryForm = this.fb.group(
     {
-      id: [''],
+      id: [0],
       name: ['', [Validators.required, Validators.minLength(3)]],
       description: ['']
     }
   )
 
   @Input()
-  set category(category: any) {
+  set category(category: Category) {
     console.log('setting new category value')
     this.categoryForm.setValue(category);
   }
@@ -44,7 +44,7 @@ export class FormComponent implements OnInit {
 
   onSubmit() {
     console.log("submit on form.component.ts", this.categoryForm.value)
-    this.save.emit(this.categoryForm.value);
+    this.save.emit(this.categoryForm.value as Category);
   }
 
   onBack() {
