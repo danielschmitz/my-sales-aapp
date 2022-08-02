@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
 
+Angular version: 14.0.2
+
 Demo: <https://danielschmitz.github.io/my-sales-aapp/>
 
 This is the project from my book Angular from Scratch <https://leanpub.com/book-angular/>
