@@ -6,7 +6,7 @@ Angular version: 14.0.2
 
 Demo: <https://danielschmitz.github.io/my-sales-aapp/>
 
-This is the project from my book Angular from Scratch <https://leanpub.com/book-angular/>
+This is the project from my book Angular from Scratch <https://leanpub.com/book-angular/> or the Spanish translation Angular 14 desde Cero <https://leanpub.com/book-angular-es>
 
 ## Development server
 
